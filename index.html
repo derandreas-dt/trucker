@@ -3,15 +3,22 @@
 <head>
   <title>Gyro Sound</title>
     <script>
-    let accelerometer = new Accelerometer({frequency: 60});
+    let accelerometer = new Accelerometer({frequency: 20});
     let isPlaying = false
     accelerometer.addEventListener('reading', e => {
+      let isp = document.getElementById("isplaying")
+      let isx = document.getElementById("isx")
+      let val = document.getElementById("xval")
+      val.textContent = accelerometer.y
       if (accelerometer.y > 1 && !isPlaying) {
         let el = document.getElementById("sound")
         el.play()
         isPlaying = true
+        isplaying.style.display = "block"
+        isx.style.display = "block"
         el.on('ended', () => {
           isPlaying = false
+          isplaying.style.display = "none"
         })
       }
     });
@@ -25,5 +32,11 @@
   <audio id="sound">
     <source src="truck-horn-152541.mp3" type="audio/mpeg">
   </audio>
+  <p>
+    <h4>debu</h4>
+    <div id="isplaying" style="background-color: green">Is Playing</div>
+    <div id="isx" style="background-color: green">Is x Detected</div>
+    <div id="xval">xval</div>
+  </p>
 </body>
 </html>
