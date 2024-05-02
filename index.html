@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Gyro Sound</title>
-  <script>
+    <script>
     window.addEventListener('deviceorientation', handleOrientation);
 
     function handleOrientation(event) {
@@ -12,14 +12,20 @@
       }
     }
 
+    var isPlaying = false;
+
     function playSound() {
       // Add code here to play the sound
       // For example, you can use the HTML5 Audio element:
       var audio = new Audio('truck-horn-152541.mp3');
       audio.play();
+      isPlaying = true
+      audio.on('ended', function() {
+        isPlaying = false
+      });
     }
   </script>
-</head>
+  </head>
 <body>
   <h1>Gyro Sound</h1>
   <p>Move your smartphone vertically downwards to play a sound.</p>
