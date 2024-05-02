@@ -3,12 +3,10 @@
 <head>
   <title>Gyro Sound</title>
     <script>
-    window.addEventListener('deviceorientation', handleOrientation);
-
-    function handleOrientation(event) {
-      var verticalTilt = event.beta;
-      var isPlaying = false;
-      if (verticalTilt < -45 && !isPlaying) {
+    let accelerometer = new Accelerometer({frequency: 60});
+    let isPlaying = false
+    accelerometer.addEventListener('reading', e => {
+      if (accelerometer.y > 1 && !isPlaying) {
         let el = document.getElementById("sound")
         el.play()
         isPlaying = true
@@ -16,11 +14,13 @@
           isPlaying = false
         })
       }
-    }
+    });
+
+    accelerometer.start();
   </script>
   </head>
 <body>
-  <h1>Gyro Sound</h1>
+  <h1>Trucker Sound</h1>
   <p>Move your smartphone vertically downwards to play a sound.</p>
   <audio id="sound">
     <source src="truck-horn-152541.mp3" type="audio/mpeg">
