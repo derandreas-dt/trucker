@@ -23,8 +23,8 @@
       let isp = document.getElementById("isplaying")
       let isx = document.getElementById("isx")
       let val = document.getElementById("xval")
-      val.textContent = accelerometer.y
-      if (accelerometer.y > 1 && !isPlaying) {
+      val.textContent = accelerometer.x
+      if (accelerometer.x > 8 && !isPlaying) {
         let el = document.getElementById("sound")
         el.play()
         isPlaying = true
