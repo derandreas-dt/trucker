@@ -2,7 +2,21 @@
 <html>
 <head>
   <title>Gyro Sound</title>
-    <script>
+  </head>
+<body>
+  <h1>Trucker Sound</h1>
+  <p>Move your smartphone vertically downwards to play a sound.</p>
+  <audio id="sound">
+    <source src="truck-horn-152541.mp3" type="audio/mpeg">
+  </audio>
+  <button id="go">Lezz Go</button>
+  <p>
+    <h4>debu</h4>
+    <div id="isplaying" style="background-color: green">Is Playing</div>
+    <div id="isx" style="background-color: green">Is x Detected</div>
+    <div id="xval">xval</div>
+  </p>
+      <script>
     let accelerometer = new Accelerometer({frequency: 20});
     let isPlaying = false
     accelerometer.addEventListener('reading', e => {
@@ -23,20 +37,9 @@
       }
     });
 
-    accelerometer.start();
+    document.getElementById("go").addEventListener("click", () => {
+      accelerometer.start();
+    })
   </script>
-  </head>
-<body>
-  <h1>Trucker Sound</h1>
-  <p>Move your smartphone vertically downwards to play a sound.</p>
-  <audio id="sound">
-    <source src="truck-horn-152541.mp3" type="audio/mpeg">
-  </audio>
-  <p>
-    <h4>debu</h4>
-    <div id="isplaying" style="background-color: green">Is Playing</div>
-    <div id="isx" style="background-color: green">Is x Detected</div>
-    <div id="xval">xval</div>
-  </p>
 </body>
 </html>
