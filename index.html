@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gyro Sound</title>
+  <title>Trucker Sound</title>
   </head>
 <body>
   <h1>Trucker Sound</h1>
@@ -10,36 +10,6 @@
     <source src="truck-horn-152541.mp3" type="audio/mpeg">
   </audio>
   <button id="go">Lezz Go</button>
-  <p>
-    <h4>debu</h4>
-    <div id="isplaying" style="background-color: green">Is Playing</div>
-    <div id="isx" style="background-color: green">Is x Detected</div>
-    <div id="xval">xval</div>
-  </p>
-      <script>
-    let accelerometer = new Accelerometer({frequency: 20});
-    let isPlaying = false
-    accelerometer.addEventListener('reading', e => {
-      let isp = document.getElementById("isplaying")
-      let isx = document.getElementById("isx")
-      let val = document.getElementById("xval")
-      val.textContent = accelerometer.x
-      if (accelerometer.x > 8 && !isPlaying) {
-        let el = document.getElementById("sound")
-        el.play()
-        isPlaying = true
-        isplaying.style.display = "block"
-        isx.style.display = "block"
-        el.addEventListener('ended', () => {
-          isPlaying = false
-          isplaying.style.display = "none"
-        })
-      }
-    });
-
-    document.getElementById("go").addEventListener("click", () => {
-      accelerometer.start();
-    })
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
