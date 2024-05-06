@@ -162,4 +162,4 @@ if ("LinearAccelerationSensor" in window) {
   console.log("Your browser doesn't support sensors.");
 }
 
-main();
+startApp();
