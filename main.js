@@ -21,7 +21,7 @@ class MaxSpeedCalculator {
 
     function onreading() {
       let dt = (this.accel.timestamp - this.t) * 0.001; // In seconds.
-      let vx = this.vx + ((this.accel.x + this.ax) / 2) * dt;
+      let vx = this.vx + ((this.accel.y + this.ay) / 2) * dt;
       let speed = Math.abs(vx);
 
       const punchTreashold = 1; // m/s
@@ -41,6 +41,7 @@ class MaxSpeedCalculator {
 
       this.t = this.accel.timestamp;
       this.ax = this.accel.x;
+      this.ay = this.accel.y;
       this.vx = vx;
     }
 
