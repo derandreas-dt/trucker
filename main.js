@@ -132,7 +132,7 @@ function setToInitialState() {
 
 function startApp() {
   acl = new LinearAccelerationSensor({ frequency: 60 });
-  speedCalculator = new MaxSpeedCalculator(acl, onresult, playSound);
+  speedCalculator = new MaxSpeedCalculator(acl, onresult, playSound, 2000);
 
   acl.addEventListener("activate", setToInitialState);
   acl.addEventListener("error", (error) => {
